@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="/layout :: head">
+
+<title>Upload Music</title>
+</head>
+<body>
+<h3>Add Product</h3>
+<p>
+  <a th:href="@{/music}">
+    Back to product list
+  </a>
+</p>
+<h1>Upload Music</h1>
+<div th:if="${message}" class="alert alert-success" role="alert">
+  <p th:text="${message}"></p>
+</div>
+<form action="#" th:action="@{/upload}" method="post" enctype="multipart/form-data">
+  <label for="name">Name:</label>
+  <input type="text" id="name" name="name" required><br>
+  <label for="artist">Artist:</label>
+  <input type="text" id="artist" name="artist" required><br>
+  <label for="type">Type:</label>
+  <input type="text" id="type" name="type" required><br>
+  <label for="link">Link:</label>
+  <input type="file" id="link" name="link" accept="audio/*" required><br>
+  <button type="submit">Upload</button>
+</form>
+<footer th:replace="/layout :: footer"></footer>
+</body>
+</html>
